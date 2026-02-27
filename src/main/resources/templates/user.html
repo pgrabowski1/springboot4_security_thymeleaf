@@ -2,16 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" lang="en" data-bs-theme="dark">
 <head>
     <th:block th:replace="~{fragments/head :: head}"></th:block>
-    <title>Admin page</title>
+    <title>User page</title>
 </head>
 <body>
 <div th:insert="~{fragments/menu :: menu}"></div>
 <th:block th:replace="~{fragments/body :: body}"></th:block>
 <div>
-    <h1>Page only for admin</h1>
+    <h1>Page for all users</h1>
     <p>Pages visited at:</p>
     <p th:text="${timestamp}"></p>
-    <h1 th:inline="text">Hello <span th:remove="tag" sec:authentication="name">thymeleaf</span>!</h1>
+    <h1 th:inline="text">Hello <span th:remove="tag" sec:authentication="name"></span>!</h1>
 </div>
 </body>
 </html>

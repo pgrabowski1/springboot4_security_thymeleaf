@@ -24,14 +24,25 @@ public class MainController {
 
     @GetMapping("/admin")
     public String admin(Model model) {
-        model.addAttribute("timestamp", LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
+        addCurrTimestampToModel(model);
 
         return "admin";
+    }
+
+    @GetMapping("/user")
+    public String user(Model model) {
+        addCurrTimestampToModel(model);
+
+        return "user";
     }
 
     @GetMapping("/403")
     public String accessDenied() {
         return "403";
     }
-}
 
+
+    private static void addCurrTimestampToModel(Model model) {
+        model.addAttribute("timestamp", LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
+    }
+}
