@@ -10,8 +10,8 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="/" target="_self">Main page</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/greeting" target="_self">Greeting</a>
+                    <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
+                        <a class="nav-link" href="/admin" target="_self">Admin page</a>
                     </li>
                     <li>
                         <form th:action="@{/logout}" method="post">

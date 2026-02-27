@@ -1,8 +1,8 @@
 package com.example.springboot4_security_thymeleaf.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
@@ -21,11 +21,17 @@ public class MainController {
     public String login() {
         return "login";
     }
-    @GetMapping("/greeting")
-    public String greeting(Model model) {
+
+    @GetMapping("/admin")
+    public String admin(Model model) {
         model.addAttribute("timestamp", LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
 
-        return "greeting";
+        return "admin";
+    }
+
+    @GetMapping("/403")
+    public String accessDenied() {
+        return "403";
     }
 }
 
